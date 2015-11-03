@@ -1,0 +1,37 @@
+# Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+meteor-base                 # Packages every Meteor app needs to have
+mobile-experience           # Packages for a great mobile UX
+session                     # Client-side reactive dictionary for your app
+jquery                      # Helpful client-side library
+underscore                  # Include underscore, a helpful client-side library
+tracker                     # Meteor's client-side reactive programming library
+
+standard-minifiers          # JS/CSS minifiers run for production mode
+es5-shim                    # ECMAScript 5 compatibility for older browsers.
+ecmascript                  # Enable ECMAScript2015+ syntax in app code
+
+check                       # Enable checking object types
+fastclick                   # Remove the 300ms delay on mobile
+meteorhacks:fast-render     # Magically render DOM before the app even loads
+
+jsx                         # Enable jsx to js compiling and mapping
+react                       # Add Facebook's React to the project
+react-meteor-data           # A React Mixin for making React components reactive
+kadira:flow-router          # Client side router
+kadira:react-layout         # React layouts for use in routers
+kadira:dochead              # Set the head of the DOM document
+okgrow:router-autoscroll    # Autoscroll the document to where the user last left off when pressing the back and forward buttons
+react-template-helper       # Blaze helper for loading in React components
+
+fourseven:scss              # Scss compiler
+poetic:materialize-scss     # Materialize Scss
+fortawesome:fontawesome     # Include font-awesome icons
+
+tap:i18n                    # Internationalization
+
+u2622:persistent-session    # Create persistent reactive sessions
