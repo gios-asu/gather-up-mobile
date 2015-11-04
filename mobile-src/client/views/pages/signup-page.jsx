@@ -1,10 +1,9 @@
 SignUpPage = React.createClass({
-  mixins: [TransitionContent],
+  mixins: [TransitionMixin],
   render() {
     return (
       <div className="signup">
         <h2>Register</h2>
-
 
         <div className="row">
           <form className="col s12 m6 offset-m3">
