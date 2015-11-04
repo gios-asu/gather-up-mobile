@@ -1,9 +1,9 @@
 HomePage = React.createClass({
+  mixins: [TransitionContent],
   render() {
     return (
       <div className="home">
         <h2>Get Started</h2>
-
 
         <div className="row">
           <form className="col m6 offset-m3">

@@ -21,6 +21,7 @@ meteorhacks:fast-render     # Magically render DOM before the app even loads
 
 jsx                         # Enable jsx to js compiling and mapping
 react                       # Add Facebook's React to the project
+react-runtime               # Explicitely add React Runtime
 react-meteor-data           # A React Mixin for making React components reactive
 kadira:flow-router          # Client side router
 kadira:react-layout         # React layouts for use in routers

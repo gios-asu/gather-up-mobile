@@ -1,4 +1,5 @@
-SignUp = React.createClass({
+SignUpPage = React.createClass({
+  mixins: [TransitionContent],
   render() {
     return (
       <div className="signup">
