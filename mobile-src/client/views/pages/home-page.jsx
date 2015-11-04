@@ -4,7 +4,7 @@ HomePage = React.createClass({
     return (
       <div className="home">
         <div className="row">
-          <div className="col s12 m6 offset-m3">
+          <div className="col s12 m8 offset-m2">
 
             <h2>Get Started</h2>
 

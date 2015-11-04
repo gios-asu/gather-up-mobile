@@ -1,26 +1,24 @@
 SignUpPage = React.createClass({
   mixins: [TransitionMixin],
   render() {
+    var registerTagLine = '';
+    var _event = Session.get('event');
+
+    if (_event && _event.title) {
+      registerTagLine = ' for ' + _event.title;
+    }
+
     return (
       <div className="signup">
-        <h2>Register</h2>
-
         <div className="row">
-          <form className="col s12 m6 offset-m3">
-            <div className="row">
-              <div className="input-field col s12">
-                <i className="large material-icons prefix">label</i>
-                <input id="name" type="text" className="validate" />
-                <label htmlFor="name">Your name</label>
-              </div>
-            </div>
-          </form>
-        </div>
+          <div className="col s12 s12 m8 offset-m2">
+            <h2>Sign In {registerTagLine}</h2>
 
-        <a className="waves-effect waves-light btn-large" href="#!">
-          <i className="material-icons left">assignment</i>
-          Register
-        </a>
+            <SignUpFormComponent />
+
+            <AdminModalComponent />
+          </div>
+        </div>
       </div>
     );
   }  

@@ -10,7 +10,7 @@ FlowRouter.route('/', {
 FlowRouter.route('/signup', {
   action: function(params, queryParams) {
     ReactLayout.render(MainLayout, {
-      content: <SignUpPage />
+      content: <SignUpPage title="Welcome!" />
     });
   },
   name: "SignUp"
