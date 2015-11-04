@@ -1,0 +1,7 @@
+.input-field .prefix.good {
+  @extend .green-text;
+}
+
+.input-field .prefix.bad {
+  @extend .red-text.text-lighten-2;
+}

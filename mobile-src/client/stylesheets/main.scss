@@ -3,8 +3,10 @@
 @import "{poetic:materialize-scss}/bower_components/materialize/sass/materialize.scss";
 
 @import "buttons";
+@import "forms";
 @import "headings";
 @import "transitions";
+
 @import "bem/_home";
 @import "bem/_signup";
 @import "bem/_admin";

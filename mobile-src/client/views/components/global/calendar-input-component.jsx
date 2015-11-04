@@ -7,7 +7,11 @@ CalendarInputComponent = React.createClass({
   },
   render() {
     return (
-      <input id={this.props.inputId} type="date" className="datepicker" defaultValue={this.props.defaultValue} />
+      <input
+        id={this.props.inputId}
+        type="date"
+        className="datepicker"
+        defaultValue={this.props.defaultValue} />
     );
   }  
 });
