@@ -12,9 +12,14 @@ SignUpFormComponent = React.createClass({
     var $i = $target.parent().find('i');
     if (check === true) {
       var old = $i.text();
-      $i.data('old-content', old).text('check').addClass('good');
+
+      if ($i.data('old-content') == null) {
+        $i.data('old-content', old);
+      }
+
+      $i.text('check').addClass('good').removeClass('bad');
     } else {
-      $i.text($i.data('old-content')).addClass('bad');
+      $i.text($i.data('old-content')).addClass('bad').removeClass('good');
     }
   },
   render() {
@@ -23,17 +28,17 @@ SignUpFormComponent = React.createClass({
         <div className="row">
           <div className="input-field col s12">
             <i className="large material-icons prefix">label</i>
-            <input id="first_name" type="text" className="validate" onChange={this.handleChange} />
+            <input id="first_name" type="text" className="validate" onChange={this.handleChange} autocomplete="off" />
             <label htmlFor="first_name">Your first name</label>
           </div>
           <div className="input-field col s12">
             <i className="large material-icons prefix">label</i>
-            <input id="last_name" type="text" className="validate" onChange={this.handleChange} />
+            <input id="last_name" type="text" className="validate" onChange={this.handleChange} autocomplete="off" />
             <label htmlFor="last_name">Your last name</label>
           </div>
           <div className="input-field col s12">
             <i className="large material-icons prefix">email</i>
-            <input id="email" type="email" className="validate" onChange={this.handleChange} />
+            <input id="email" type="email" className="validate" onChange={this.handleChange} autocomplete="off" />
             <label htmlFor="email">Your email</label>
           </div>
         </div>
