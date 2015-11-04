@@ -1,4 +1,5 @@
 .slide-container {
+  background-color: black;
   display: block;
   overflow: hidden;
   width: 100%;
@@ -10,25 +11,33 @@
 }
 
 .slide {
+  background-color: white;
+  box-shadow: 0 0 15px black;
   float: left;
   min-height: 100vh;
+  position: relative;
   width: 50%;
 }
 
-.slide-enter {
+.slide-left-enter {
   transform: translateX(100%);
+  z-index: 100;
 }
 
-.slide-enter.slide-enter-active {
+.slide-left-enter.slide-left-enter-active {
   transform: translateX(0px);
-  transition: transform 500ms ease-in;
+  transition: transform 300ms ease-in;
 }
 
-.slide-leave {
-  transform: translateX(-100%);
+.slide-left-leave {
+  opacity: 1;
+  transform: translateX(-100%) scale(1);
+  z-index: 1;
 }
 
-.slide-leave.slide-leave-active {
-  transform: translateX(-200%);
-  transition: transform 500ms ease-in;
+.slide-left-leave.slide-left-leave-active {
+  opacity: .8;
+  transform: translateX(-100%) scale(0.95);
+  transition: transform 300ms ease-in,
+              opacity 300ms ease-out;
 }

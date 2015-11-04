@@ -44,7 +44,7 @@ MainLayout = React.createClass({
         <div className="slide-container">
           <TransitionGroup
               className="slide-inner"
-              transitionName="slide"
+              transitionName="slide-left"
               transitionEnterTimeout={500}
               transitionLeaveTimeout={500}
               name="wow">

@@ -7,7 +7,7 @@ SignUpPage = React.createClass({
 
 
         <div className="row">
-          <form className="col m6 offset-m3">
+          <form className="col s12 m6 offset-m3">
             <div className="row">
               <div className="input-field col s12">
                 <i className="large material-icons prefix">label</i>
