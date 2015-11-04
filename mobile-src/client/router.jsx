@@ -15,3 +15,12 @@ FlowRouter.route('/signup', {
   },
   name: "SignUp"
 });
+
+FlowRouter.route('/thankyou', {
+  action: function(params, queryParams) {
+    ReactLayout.render(MainLayout, {
+      content: <ThankYouPage title="Thank You!" />
+    });
+  },
+  name: "ThankYou"
+});

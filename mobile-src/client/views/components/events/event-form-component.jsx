@@ -29,15 +29,18 @@ EventFormComponent = React.createClass({
     var time     = $('#event_time').val();
     var notes    = $('#event_notes').val();
 
-    var error = 
-      Validate.check(ValidateEventTitle, title) ||
-      Validate.check(ValidateDateNotRequired, date) ||
-      Validate.check(ValidateTimeNotRequired, time) ||
-      Validate.check(ValidateEventNotes, notes) || true;
+    var error = Validate.chain(
+        Validate.check(ValidateEventTitle, title),
+        Validate.check(ValidateDateNotRequired, date),
+        Validate.check(ValidateTimeNotRequired, time),
+        Validate.check(ValidateEventNotes, notes)
+    );
 
     if (error !== true) {
       this.setState({'error': error});
       return;
+    } else {
+      this.setState({'error': null});
     }
 
     Session.set('event', {
@@ -50,24 +53,9 @@ EventFormComponent = React.createClass({
     FlowRouter.go('/signup');
   },
   render() {
-    var error = this.state.error;
-    var $$error = '';
-
-    if (error) {
-      var $$error = (
-        <div className="card-panel red lighten-1">
-          <span className="white-text">
-            {error}
-          </span>
-        </div>
-      );
-    }
-
     return (
-      <form>
-        <div className="row">
-          {$$error}
-        </div>
+      <form onSubmit={this.handleSubmit}>
+        <ErrorComponent message={this.state.error} />
         <div className="row">
           <div className="input-field col s12">
             <i className="large material-icons prefix">label</i>

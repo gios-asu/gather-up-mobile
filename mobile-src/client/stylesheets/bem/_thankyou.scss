@@ -1,0 +1,25 @@
+/*
+ |--------------------------------------------
+ | Thank You BEM
+ |--------------------------------------------
+ |
+ | 
+ |
+ */
+.thankyou {
+  text-align: center;
+
+  h2 {
+    @extend .header;
+
+    font-size: 2.2rem;
+  }
+}
+
+.thankyou__badge {
+  margin: 5vh 0;
+}
+
+.thankyou__button {
+  margin: 5vh 0;
+}

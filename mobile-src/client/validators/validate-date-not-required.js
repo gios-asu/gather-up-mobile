@@ -8,7 +8,7 @@ ValidateDateNotRequired = function() {
       return true;
     }
 
-    var re = '([0-9]){4}-([0-9]){2}-([0-9]){2}';
+    var re = new RegExp('([0-9]){4}-([0-9]){2}-([0-9]){2}', 'i');
     return re.test(date);
   };
 

@@ -82,3 +82,142 @@
                 opacity 300ms ease-out;
   }
 }
+
+/*
+ |--------------------------------------------
+ | Animated Checkbox
+ |--------------------------------------------
+ |
+ | 
+ |
+ */
+@-moz-keyframes 
+  dothabottomcheck {
+    0% {
+      height: 0;
+    }
+    100% {
+      height: 22px;
+    }
+  }
+@-webkit-keyframes 
+  dothabottomcheck { 
+    0% {
+      height: 0;
+    }
+    100% {
+      height: 22px;
+    }
+  }
+@keyframes 
+  dothabottomcheck {
+    0% {
+      height: 0;
+    }
+    100% {
+      height: 22px;
+    }
+  }
+
+@keyframes 
+  dothatopcheck {
+    0% {
+      height: 0;
+    }
+    50% {
+      height: 0;
+    }
+    100% {
+      height: 42px;
+    }
+  }
+@-webkit-keyframes 
+  dothatopcheck {
+    0% {
+      height: 0;
+    }
+    50% {
+      height: 0;
+    }
+    100% {
+      height: 42px;
+    }
+  }
+@-moz-keyframes 
+  dothatopcheck {
+    0% {
+      height: 0;
+    }
+    50% {
+      height: 0;
+    }
+    100% {
+      height: 42px;
+    }
+  }
+
+.check-box {
+  height: 100px;
+  width: 100px;
+  background-color: transparent;
+  position: relative;
+  display: inline-block;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.check-box::before,
+.check-box::after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  height: 0;
+  width: 10px;
+  background-color: #34b93d;
+  display: inline-block;
+  -moz-transform-origin: left top;
+  -ms-transform-origin: left top;
+  -o-transform-origin: left top;
+  -webkit-transform-origin: left top;
+  transform-origin: left top;
+  content: ' ';
+  -webkit-transition: opacity ease .5;
+  -moz-transition: opacity ease .5;
+  transition: opacity ease .5;
+}
+
+.check-box::before {
+  top: 62px;
+  left: 43px;
+  -moz-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+
+.check-box::after {
+  top: 45px;
+  left: 26px;
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.check-box::after {
+  -moz-animation: dothabottomcheck 0.2s ease 1s forwards;
+  -o-animation: dothabottomcheck 0.2s ease 1s forwards;
+  -webkit-animation: dothabottomcheck 0.2s ease 1s forwards;
+  animation: dothabottomcheck 0.2s ease 1s forwards;
+}
+
+.check-box::before {
+  -moz-animation: dothatopcheck 0.4s ease 1s forwards;
+  -o-animation: dothatopcheck 0.4s ease 1s forwards;
+  -webkit-animation: dothatopcheck 0.4s ease 1s forwards;
+  animation: dothatopcheck 0.4s ease 1s forwards;
+}
