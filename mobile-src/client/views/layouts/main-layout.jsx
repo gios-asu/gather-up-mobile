@@ -16,16 +16,10 @@ MainLayout = React.createClass({
     });
   },
   render() {
-    var child;
-    var children = [this.props.content];
-
-    if ( children[0] === null ) {
-      children.splice(0, 1);
-    }
-
-    var items = children.map(function(item, i) {
-      var key = item.type.displayName;
-      return (
+    var transitionType = this.props.content.props.transitionType || 'slide-left';
+    var item           = this.props.content;
+    var key            = item.type.displayName;
+    var content        = (
         <div key={key} className="slide">
           <header>
             <NavigationComponent />
@@ -36,19 +30,18 @@ MainLayout = React.createClass({
           <footer>
           </footer>
         </div>
-      );
-    }.bind(this));
+    );
 
     return (
       <div>
         <div className="slide-container">
           <TransitionGroup
               className="slide-inner"
-              transitionName="slide-left"
+              transitionName={transitionType}
               transitionEnterTimeout={500}
               transitionLeaveTimeout={500}
               name="wow">
-            {items}
+            {content}
           </TransitionGroup>
         </div>
       </div>

@@ -19,25 +19,66 @@
   width: 50%;
 }
 
+/*
+ |--------------------------------------------
+ | Slide Left
+ |--------------------------------------------
+ |
+ | Have the new slide slide in from the right
+ | to the left.
+ |
+ */
 .slide-left-enter {
   transform: translateX(100%);
   z-index: 100;
-}
 
-.slide-left-enter.slide-left-enter-active {
-  transform: translateX(0px);
-  transition: transform 300ms ease-in;
+  &.slide-left-enter-active {
+    transform: translateX(0px);
+    transition: transform 300ms ease-in;
+  }
 }
 
 .slide-left-leave {
   opacity: 1;
   transform: translateX(-100%) scale(1);
   z-index: 1;
+
+  &.slide-left-leave-active {
+    opacity: .8;
+    transform: translateX(-100%) scale(0.95);
+    transition: transform 300ms ease-in,
+                opacity 300ms ease-out;
+  }
 }
 
-.slide-left-leave.slide-left-leave-active {
-  opacity: .8;
-  transform: translateX(-100%) scale(0.95);
-  transition: transform 300ms ease-in,
-              opacity 300ms ease-out;
+/*
+ |--------------------------------------------
+ | Slide Right
+ |--------------------------------------------
+ |
+ | Have the new slide slide in from the left
+ | to the right.
+ |
+ */
+.slide-right-enter {
+  transform: translateX(-100%);
+  z-index: 100;
+
+  &.slide-right-enter-active {
+    transform: translateX(0px);
+    transition: transform 300ms ease-in;
+  }
+}
+
+.slide-right-leave {
+  opacity: 1;
+  transform: translateX(-100%) scale(1);
+  z-index: 1;
+
+  &.slide-right-leave-active {
+    opacity: .8;
+    transform: translateX(-100%) scale(0.95);
+    transition: transform 300ms ease-in,
+                opacity 300ms ease-out;
+  }
 }

@@ -1,5 +1,8 @@
 HomePage = React.createClass({
   mixins: [TransitionContent],
+  getTransitionType() {
+    return 'slide-right';
+  },
   render() {
     return (
       <div className="home">
