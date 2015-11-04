@@ -10,6 +10,8 @@ SignUpFormComponent = React.createClass({
       check = Validate.check(ValidateNotEmpty, $target.val());
     } else if ($target.is('#email')) {
       check = Validate.check(ValidateEmail, $target.val());
+    } else if ($target.is('#birthdate') ) {
+      check = Validate.check(ValidateDate, $target.val());
     }
 
     var $i = $target.parent().find('i');
@@ -31,11 +33,13 @@ SignUpFormComponent = React.createClass({
     var firstName = $('#first_name').val();
     var lastName  = $('#last_name').val();
     var email     = $('#email').val();
+    var birthdate = $('#birthdate').val();
 
     var error = Validate.chain(
         Validate.check(ValidateNotEmpty, firstName, 'Please enter a first name'),
         Validate.check(ValidateNotEmpty, lastName, 'Please enter a last name'),
-        Validate.check(ValidateEmail, email)
+        Validate.check(ValidateEmail, email),
+        Validate.check(ValidateDate, birthdate)
     );
 
     if (error !== true) {
@@ -52,6 +56,7 @@ SignUpFormComponent = React.createClass({
       firstName: firstName,
       lastName: lastName,
       email: email,
+      birthdate: birthdate,
       event: event
     });
 
@@ -78,6 +83,19 @@ SignUpFormComponent = React.createClass({
             <i className="large material-icons prefix">email</i>
             <input id="email" type="email" className="validate" onChange={this.handleChange} autoComplete="off" />
             <label htmlFor="email">Your email</label>
+          </div>
+          <div className="input-field col s12">
+            <i className="large material-icons prefix">perm_contact_calendar</i>
+            <label htmlFor="birthdate">Birth Date</label>
+            <CalendarInputComponent
+                min={new Date(1900, 0, 1)}
+                max={new Date()}
+                today={false}
+                selectYears={100}
+                inputId="birthdate"
+                defaultValue={this.state.date}
+                onChange={this.handleChange}
+                autoComplete="off" />
           </div>
         </div>
         <a className="waves-effect waves-light btn-large" href="#!" onClick={this.handleSubmit}>

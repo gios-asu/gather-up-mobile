@@ -1,10 +1,37 @@
 CalendarInputComponent = React.createClass({
   componentDidMount() {
-    $('#' + this.props.inputId).pickadate({
+    var that = this;
+
+    var options = {
       selectMonths: true,
-      selectYears: 2,
+      min: this.props.min,
+      max: this.props.max,
       format: 'yyyy-mm-dd',
-    });
+      onClose: function () {
+        if ( that.props.onChange ) {
+          that.props.onChange({
+            target: $('#' + that.props.inputId)[0]
+          });
+        }
+      }
+    };
+
+    if (this.props.selectYears !== undefined) {
+      options.selectYears = this.props.selectYears;
+    } else if (this.props.selectYears == undefined) {
+      options.selectYears = 3;
+    } else {
+      // Do nothing
+    }
+    if (this.props.today !== undefined ) {
+      options.today = this.props.today;
+    } else if (this.props.today == undefined) {
+      // Do nothing
+    } else {
+      options.today = this.props.today;
+    }
+
+    $('#' + this.props.inputId).pickadate(options);
   },
   render() {
     return (
@@ -12,7 +39,9 @@ CalendarInputComponent = React.createClass({
         id={this.props.inputId}
         type="date"
         className="datepicker"
-        defaultValue={this.props.defaultValue} />
+        defaultValue={this.props.defaultValue}
+        onChange={this.props.onChange}
+        autoComplete={this.props.autoComplete} />
     );
   }  
 });
