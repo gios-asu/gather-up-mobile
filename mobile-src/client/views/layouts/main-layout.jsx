@@ -11,6 +11,8 @@ MainLayout = React.createClass({
       return;
     }
 
+    window.scrollTo(0, 0);
+
     this.setState({
       'prevContent': this.props.content
     });
@@ -23,7 +25,7 @@ MainLayout = React.createClass({
     var content        = (
         <div key={key} className="slide">
           <header>
-            <NavigationComponent title={title} />
+            <NavigationComponent title={title} allowGoBack={this.props.allowGoBack}/>
           </header>
           <main>
             {item}

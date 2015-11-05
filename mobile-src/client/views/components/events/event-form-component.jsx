@@ -134,7 +134,7 @@ EventFormComponent = React.createClass({
           &nbsp;
           <a className="waves-effect waves-light btn" href="#!" onClick={this.handleSubmit}>
             <i className="material-icons left">assignment</i>
-            Start Gathering Sign Ups
+            Start Gathering Sign Ins
           </a>
         </div>
       </form>

@@ -1,23 +1,41 @@
+/*
+ |--------------------------------------------
+ | Admin Button BEM
+ |--------------------------------------------
+ |
+ | Affix the float button to the bottom right
+ | of the view
+ |
+ */
 .admin__modal-button {
   bottom: 10px;
   position: fixed;
   right: 10px;
 }
 
+/*
+ |--------------------------------------------
+ | Admin Password BEM
+ |--------------------------------------------
+ |
+ | Set up the password circles, and password
+ | buttons
+ |
+ */
 .admin__password-circles {
   margin-bottom: 20px;
   text-align: center;
 
   &[data-length="1"] {
     .admin__password-circles-circle:nth-child(1) {
-      background-color: #34b93d;
+      background-color: $success-color;
     }
   }
 
   &[data-length="2"] {
     .admin__password-circles-circle:nth-child(1),
     .admin__password-circles-circle:nth-child(2) {
-      background-color: #34b93d;
+      background-color: $success-color;
     }
   }
 
@@ -25,7 +43,7 @@
     .admin__password-circles-circle:nth-child(1),
     .admin__password-circles-circle:nth-child(2),
     .admin__password-circles-circle:nth-child(3) {
-      background-color: #34b93d;
+      background-color: $success-color;
     }
   }
 
@@ -34,13 +52,13 @@
     .admin__password-circles-circle:nth-child(2),
     .admin__password-circles-circle:nth-child(3),
     .admin__password-circles-circle:nth-child(4) {
-      background-color: #34b93d;
+      background-color: $success-color;
     }
   }
 }
 
 .admin__password-circles-circle {
-  border: 2px solid #34b93d;
+  border: 2px solid $success-color;
   border-radius: 50%;
   display: inline-block;
   height: 10px;
@@ -57,9 +75,9 @@
 
 .admin__password-keypad-key,
 .admin__password-keypad-backspace {
-  border: 2px solid #34b93d;
+  border: 2px solid $success-color;
   border-radius: 50%;
-  color: #34b93d;
+  color: $success-color;
   display: inline-block;
   font-size: 2rem;
   font-weight: 300;

@@ -15,6 +15,9 @@ AdminButtonComponent = React.createClass({
     });
   },
   render() {
+    // Set the ReactModel app element
+    //
+    // This must be called before using the ReactModal
     ReactModal.setAppElement(document.getElementById('react-root'));
 
     var modalStyles = {
@@ -30,9 +33,9 @@ AdminButtonComponent = React.createClass({
           <i className="material-icons grey-text text-darken-1">perm_identity</i>
         </a>
         <ReactModal
-          style={modalStyles}
-          onRequestClose={this.closeModal}
-          isOpen={this.state.modalIsOpen}>
+            style={modalStyles}
+            onRequestClose={this.closeModal}
+            isOpen={this.state.modalIsOpen}>
           <AdminModalComponent />
         </ReactModal>
       </div>

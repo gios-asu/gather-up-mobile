@@ -1,4 +1,12 @@
 ErrorComponent = React.createClass({
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.message) {
+      var component = this.refs.error;
+      var scrollY   = $(component).offset().top - 20;
+
+      $('html, body').stop().animate({scrollTop: scrollY }, 300);
+    }
+  },
   render() {
     var errors = this.props.message;
     var $$error = '';
@@ -18,7 +26,7 @@ ErrorComponent = React.createClass({
     }
 
     return (
-      <div className="row">
+      <div className="row" ref="error">
         {$$error}
       </div>
     );

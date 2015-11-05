@@ -1,7 +1,23 @@
+/*
+ |--------------------------------------------
+ | Buttons
+ |--------------------------------------------
+ |
+ | Additional button styles not included in
+ | Materialize.
+ |
+ */
 .btn-block {
   width: 100%;
 }
 
 .btn + .btn {
   margin-top: 10px;
+}
+
+.asu-blue {
+  background-color: $colors-asu-blue !important;
+}
+.asu-blue-text {
+  color: $colors-asu-blue !important;
 }

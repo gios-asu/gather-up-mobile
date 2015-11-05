@@ -1,7 +1,18 @@
-.input-field .prefix.good {
-  @extend .green-text;
-}
+/*
+ |--------------------------------------------
+ | Forms
+ |--------------------------------------------
+ |
+ | Set up form and input styles not included
+ | in Materialize
+ |
+ */
+.input-field .prefix {
+  &.good {
+    @extend .green-text;
+  }
 
-.input-field .prefix.bad {
-  @extend .red-text.text-lighten-2;
+  &.bad {
+    @extend .red-text.text-lighten-2;
+  }
 }

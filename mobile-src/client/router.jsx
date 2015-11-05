@@ -7,6 +7,16 @@ FlowRouter.route('/', {
   name: "HomePage"
 });
 
+FlowRouter.route('/event', {
+  action: function(params, queryParams) {
+    ReactLayout.render(MainLayout, {
+      content: <EventPage />,
+      allowGoBack: true
+    });
+  },
+  name: "Event"
+});
+
 FlowRouter.route('/signup', {
   action: function(params, queryParams) {
     ReactLayout.render(MainLayout, {
@@ -23,4 +33,14 @@ FlowRouter.route('/thankyou', {
     });
   },
   name: "ThankYou"
+});
+
+FlowRouter.route('/view', {
+  action: function(params, queryParams) {
+    ReactLayout.render(MainLayout, {
+      content: <ViewPage />,
+      allowGoBack: true
+    });
+  },
+  name: "View"
 });
