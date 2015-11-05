@@ -27,7 +27,7 @@ ThankYouPage = React.createClass({
               </a>
             </div>
 
-            <AdminModalComponent />
+            <AdminButtonComponent />
           </div>
         </div>
       </div>

@@ -3,3 +3,95 @@
   position: fixed;
   right: 10px;
 }
+
+.admin__password-circles {
+  margin-bottom: 20px;
+  text-align: center;
+
+  &[data-length="1"] {
+    .admin__password-circles-circle:nth-child(1) {
+      background-color: #34b93d;
+    }
+  }
+
+  &[data-length="2"] {
+    .admin__password-circles-circle:nth-child(1),
+    .admin__password-circles-circle:nth-child(2) {
+      background-color: #34b93d;
+    }
+  }
+
+  &[data-length="3"] {
+    .admin__password-circles-circle:nth-child(1),
+    .admin__password-circles-circle:nth-child(2),
+    .admin__password-circles-circle:nth-child(3) {
+      background-color: #34b93d;
+    }
+  }
+
+  &[data-length="4"] {
+    .admin__password-circles-circle:nth-child(1),
+    .admin__password-circles-circle:nth-child(2),
+    .admin__password-circles-circle:nth-child(3),
+    .admin__password-circles-circle:nth-child(4) {
+      background-color: #34b93d;
+    }
+  }
+}
+
+.admin__password-circles-circle {
+  border: 2px solid #34b93d;
+  border-radius: 50%;
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+
+  &+.admin__password-circles-circle {
+    margin-left: 10px;
+  }
+}
+
+.admin__password-keypad {
+  text-align: center;
+}
+
+.admin__password-keypad-key,
+.admin__password-keypad-backspace {
+  border: 2px solid #34b93d;
+  border-radius: 50%;
+  color: #34b93d;
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 300;
+  height: 50px;
+  margin-bottom: 5px;
+  text-align: center;
+  width: 50px;
+
+  span {
+    vertical-align: middle;
+  }
+}
+
+.admin__password-keypad-placeholder {
+  display: inline-block;
+  height: 10px;
+  margin-bottom: 5px;
+  text-align: center;
+  width: 50px;
+}
+
+.admin__password-keypad-backspace {
+  border: 0;
+  color: #cecece;
+}
+
+.admin__password-keypad-key,
+.admin__password-keypad-placeholder,
+.admin__password-keypad-backspace {
+  &+.admin__password-keypad-key,
+  &+.admin__password-keypad-placeholder,
+  &+.admin__password-keypad-backspace {
+    margin-left: 20px;
+  }
+}

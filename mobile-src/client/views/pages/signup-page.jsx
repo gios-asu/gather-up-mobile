@@ -16,7 +16,7 @@ SignUpPage = React.createClass({
 
             <SignUpFormComponent />
 
-            <AdminModalComponent />
+            <AdminButtonComponent />
           </div>
         </div>
       </div>
