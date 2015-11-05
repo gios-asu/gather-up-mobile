@@ -1,3 +1,7 @@
+/**
+ * Verify that the password is 4 characters long
+ * and all characters are numbers
+ */
 ValidatePassword = function () {
   var validate = function(password) {
     // Verify that it is a number

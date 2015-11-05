@@ -1,3 +1,7 @@
+/**
+ * Verify that the text provided is not
+ * empty and is a time
+ */
 ValidateTime = function() {
   var validate = function (time) {
     if (time === '') {
