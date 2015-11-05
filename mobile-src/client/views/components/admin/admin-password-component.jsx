@@ -6,15 +6,24 @@ AdminPasswordComponent = React.createClass({
   },
   handleClick(e) {
     e.preventDefault();
-    var $target = $(e.target);
+    var $target = $(e.currentTarget);
     var password = this.state.enteredPassword;
 
     password.push($target.find('span').text());
 
-    if (password.length === 4) {      
+    if (password.length === 4) {
       // TODO implement a timeout and check the password
-      // if success, run success callback
-      // if failure, run failure callback
+      
+      var realPassword    = Session.get('admin').password;
+      var enteredPassword = password.join('');
+
+      if (parseInt(realPassword, 10) === parseInt(enteredPassword, 10)) {
+        // if success, run success callback
+        this.props.onSuccess();
+      } else {
+        // if failure, run failure callback
+        this.props.onFailure();
+      }
       // then no matter what, reset the entered password
       
       this.setState({
@@ -123,7 +132,6 @@ AdminPasswordComponent = React.createClass({
                 onClick={this.handleBackspace}>
               <span><i className="material-icons">backspace</i></span>
             </a>
-            
           </div>
         </div>
       </div>

@@ -1,4 +1,12 @@
 AdminModalComponent = React.createClass({
+  onSuccess() {
+    console.log('Success');
+
+    FlowRouter.go('/');
+  },
+  onFailure() {
+    console.log('Failed');
+  },
   render() {
     return (
       <div>
@@ -9,9 +17,6 @@ AdminModalComponent = React.createClass({
           <AdminPasswordComponent
               onSuccess={this.onSuccess}
               onFailure={this.onFailure} />
-        </div>
-        <div className="modal-footer">
-          <a href="#!" className="waves-effect waves-green btn-flat">Agree</a>
         </div>
       </div>
     );

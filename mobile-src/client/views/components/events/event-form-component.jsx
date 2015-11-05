@@ -6,15 +6,19 @@ EventFormComponent = React.createClass({
    * Purposely not reactive
    */
   getInitialState() {
-    return Session.get('event') || {
+    return _.extend({
+      password: 1234
+    }, Session.get('event'), {
       title: '',
       data: '',
       time: '',
       notes: ''
-    };
+    });
   },
   handleClear(e) {
     Session.set('event', null);
+
+    $('#admin_password').val(1234);
 
     $('#event_title').val('');
     $('#event_date').val('');
@@ -24,6 +28,7 @@ EventFormComponent = React.createClass({
   handleSubmit(e) {
     e.preventDefault();
 
+    var password = $('#admin_password').val();
     var title    = $('#event_title').val();
     var date     = $('#event_date').val();
     var time     = $('#event_time').val();
@@ -33,7 +38,8 @@ EventFormComponent = React.createClass({
         Validate.check(ValidateEventTitle, title),
         Validate.check(ValidateDateNotRequired, date),
         Validate.check(ValidateTimeNotRequired, time),
-        Validate.check(ValidateEventNotes, notes)
+        Validate.check(ValidateEventNotes, notes),
+        Validate.check(ValidatePassword, password)
     );
 
     if (error !== true) {
@@ -48,6 +54,10 @@ EventFormComponent = React.createClass({
       date: date,
       time: time,
       notes: notes
+    });
+
+    Session.set('admin', {
+      password: password
     });
 
     FlowRouter.go('/signup');
@@ -66,6 +76,19 @@ EventFormComponent = React.createClass({
                 defaultValue={this.state.title}
                 required="required" />
             <label htmlFor="event_title">Event Title</label>
+          </div>
+        </div>
+        <div className="row">
+          <div className="input-field col s12">
+            <i className="large material-icons prefix">phonelink_lock</i>
+            <input
+                id="admin_password"
+                type="number"
+                className="validate"
+                defaultValue={this.state.password}
+                required="required" 
+                length="4"/>
+            <label htmlFor="admin_password" className="active">Lock Password</label>
           </div>
         </div>
         <div className="row">
