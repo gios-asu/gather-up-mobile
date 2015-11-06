@@ -34,5 +34,6 @@ poetic:materialize-scss     # Materialize Scss
 fortawesome:fontawesome     # Include font-awesome icons
 
 tap:i18n                    # Internationalization
+momentjs:moment             # Awesome date parser
 
 richsilv:dumb-collections   # Minimongo collections without using live pubsub

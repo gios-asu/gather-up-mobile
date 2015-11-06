@@ -67,6 +67,18 @@ EventFormComponent = React.createClass({
 
     FlowRouter.go('/signup');
   },
+  componentDidMount() {
+    var fields = ['#event_title', '#event_date',
+                  '#event_time', '#event_notes'];
+    for (var i = 0; i < fields.length; i++) {    
+      var $input = $(fields[0]);
+      var $label = $input.parent().find('label');
+      
+      if ($input.val() !== '') {
+        $label.addClass('active');
+      }
+    }
+  },
   render() {
     return (
       <form onSubmit={this.handleSubmit}>

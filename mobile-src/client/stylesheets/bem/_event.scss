@@ -1,6 +1,6 @@
 /*
  |--------------------------------------------
- | Home BEM
+ | Event Page BEM
  |--------------------------------------------
  |
  | 
@@ -13,5 +13,23 @@
     @extend .header;
 
     font-size: 3rem;
+  }
+}
+
+/*
+ |--------------------------------------------
+ | Event List Item BEM
+ |--------------------------------------------
+ |
+ | 
+ |
+ */
+.event__list-item__badge {
+  clear: both;
+  display: block;
+  margin-bottom: 4px;
+
+  .material-icons {
+    float: left;
   }
 }
