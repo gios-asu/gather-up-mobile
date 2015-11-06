@@ -27,3 +27,20 @@ $primary-color:   $colors-ws-menu-gray;
 $secondary-color: $colors-asu-maroon;
 $success-color:   $colors-asu-green;
 $link-color:      $colors-asu-maroon;
+
+/*
+ | Color Instances
+ */
+.asu-maroon {
+  background-color: $colors-asu-maroon !important;
+}
+.asu-maroon-text {
+  color: $colors-asu-maroon !important;
+}
+
+.asu-blue {
+  background-color: $colors-asu-blue !important;
+}
+.asu-blue-text {
+  color: $colors-asu-blue !important;
+}

@@ -52,15 +52,20 @@ SignUpFormComponent = React.createClass({
     var event   = Session.get('event');
     var signins = Session.get('signins') || [];
 
-    signins.push({
+    var signinData = {
       firstName: firstName,
       lastName: lastName,
       email: email,
-      birthdate: birthdate,
-      event: event
-    });
+      birthdate: birthdate
+    };
 
-    Session.set('signins', signins);
+    EventsCollection.update({
+      _id: event.id
+    }, {
+      $push: {
+        signins: signinData
+      }
+    });
 
     FlowRouter.go('/thankyou');
   },

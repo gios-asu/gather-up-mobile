@@ -1,0 +1,1 @@
+EventsCollection = new DumbCollection('events');

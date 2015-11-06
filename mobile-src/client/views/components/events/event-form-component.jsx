@@ -7,13 +7,12 @@ EventFormComponent = React.createClass({
    */
   getInitialState() {
     return _.extend({
-      password: 1234
-    }, Session.get('event'), {
+      password: 1234,
       title: '',
-      data: '',
+      date: '',
       time: '',
-      notes: ''
-    });
+      notes: '',
+    }, Session.get('event'));
   },
   handleClear(e) {
     Session.set('event', null);
@@ -49,12 +48,18 @@ EventFormComponent = React.createClass({
       this.setState({'error': null});
     }
 
-    Session.set('event', {
+    var eventData = {
       title: title,
       date: date,
       time: time,
-      notes: notes
-    });
+      notes: notes,
+      signins: []
+    };
+
+    var id = EventsCollection.insert(eventData);
+    eventData.id = id;
+
+    Session.set('event', eventData);
 
     Session.set('admin', {
       password: password

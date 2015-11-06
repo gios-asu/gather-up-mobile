@@ -35,4 +35,4 @@ fortawesome:fontawesome     # Include font-awesome icons
 
 tap:i18n                    # Internationalization
 
-u2622:persistent-session    # Create persistent reactive sessions
+richsilv:dumb-collections   # Minimongo collections without using live pubsub
