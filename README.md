@@ -5,5 +5,5 @@ App for gathering event sign ins
 * Install Meteor https://www.meteor.com/install
 * git clone this repo
 * `cd mobile-src`
-* `meteor run`
+* `meteor`
 * visit `http://localhost:3000/`
