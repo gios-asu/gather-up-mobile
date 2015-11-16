@@ -13,6 +13,11 @@ CalendarInputComponent = React.createClass({
             target: $('#' + that.props.inputId)[0]
           });
         }
+      },
+      onSet: function (context) {
+        if (contect && contect.select) {
+          this.close();
+        }
       }
     };
 
