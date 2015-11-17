@@ -1,3 +1,7 @@
+/**
+ * Load in fonts - We do this here in JavaScript because
+ * Meteor does not let us set the HEAD through HTML
+ */
 Meteor.startup(function () {
   var WebFontConfig = {
     google: { families: [ 'Raleway:400,700,900', 'Lato:400,900' ] }

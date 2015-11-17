@@ -7,10 +7,13 @@
  | Materialize.
  |
  */
+
+// Add the Bootstrap style block button
 .btn-block {
   width: 100%;
 }
 
+// Give buttons breathing room
 .btn + .btn {
   margin-top: 10px;
 }
