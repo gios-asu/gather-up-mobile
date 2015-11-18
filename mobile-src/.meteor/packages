@@ -37,3 +37,5 @@ tap:i18n                    # Internationalization
 momentjs:moment             # Awesome date parser
 
 richsilv:dumb-collections   # Minimongo collections without using live pubsub
+idmontie:simple-validation
+idmontie:humanize
