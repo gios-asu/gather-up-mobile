@@ -47,14 +47,19 @@ SignInPromiseCommand = function() {
       _prodSignIn(user);
     }
 
-    return promise.then(function(result) {
+    return promise.then(function afterAuthTokenGetPublicKey(result) {
       var authToken = result.token;
 
-      login(email, teamId, authToken);
+      return dispatch(new PublicKeyPromiseCommand(), authToken);
+    }).then(function afterPublickKeyLogin(result) {
+      var authToken = result.token;
+      var publicKey = result.publicKey;
+
+      login(email, teamId, authToken, publicKey);
     });
-  }
+  };
 
   return {
     handle: handle
-  }
-}
+  };
+};

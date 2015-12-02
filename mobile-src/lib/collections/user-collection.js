@@ -1,12 +1,13 @@
 UserCollection = new DumbCollection('user');
 
-login = function(email, teamId, authToken) {
+login = function(email, teamId, authToken, publicKey) {
   logout();
 
   return UserCollection.insert({
     email: email,
     teamId: teamId,
-    authToken: authToken
+    authToken: authToken,
+    publicKey: publicKey
   });
 }
 

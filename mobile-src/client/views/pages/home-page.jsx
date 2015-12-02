@@ -33,7 +33,7 @@ HomePage = React.createClass({
       FlowRouter.go('Dashboard');
     }.bind(this)).fail(function(err) {
       // error
-      this.setState({ error: err });
+      this.setState({ error: err.message });
       this.setState({ isLoading: false });
     }.bind(this));
   },
