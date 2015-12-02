@@ -1,0 +1,18 @@
+{
+  "public": {
+    "env": "dev",
+    "testData": {
+      "user": {
+        "email": "test@test.com",
+        "password": "test",
+        "teamId": "1"
+      },
+      "authToken": "token",
+      "publicKey": "TODO"
+    },
+    "api": {
+      "endpoint": "https://gatherup.asu.edu/api/",
+      "version" : "v1" 
+    }
+  }
+}

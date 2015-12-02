@@ -1,38 +1,79 @@
 HomePage = React.createClass({
   mixins: [TransitionMixin],
-  handleEventClick(e) {
-    e.preventDefault();
-
-    FlowRouter.go('/event');
+  getInitialState() {
+    return {
+      error: false,
+      isLoading: false
+    }
   },
-  handleViewClick(e) {
+  handleSubmit(e) {
     e.preventDefault();
 
-    FlowRouter.go('/view');
+    var email = $('#email').val();
+    var password = $('#password').val();
+    var teamId = $('#teamId').val();
+
+    var error = Validate.chain(
+        Validate.check(ValidateNotEmpty, email, "Email is required"),
+        Validate.check(ValidateNotEmpty, password, "Password is required"),
+        Validate.check(ValidateNotEmpty, teamId, "Team ID is required")
+    );
+
+    if (error !== true) {
+      this.setState({error: error});
+      return;
+    } else {
+      this.setState({error: null});
+    }
+
+    this.setState({ isLoading : true });
+
+    dispatch(new SignInPromiseCommand(), email, password, teamId).then(function(result) {
+      // success
+      FlowRouter.go('Dashboard');
+    }.bind(this)).fail(function(err) {
+      // error
+      this.setState({ error: err });
+      this.setState({ isLoading: false });
+    }.bind(this));
   },
   render() {
+    if (this.state.isLoading) {
+      return <AppLoadingComponent />;
+    }
+
     return (
       <div className="event">
         <div className="row">
           <div className="col s12 m8 offset-m2">
 
-            <h2>Welcome!</h2>
+            <h2>Sign In!</h2>
 
-            <p>
-              This is the administrative panel. From here, you can
-              gather new sign ins for an event, or see who has
-              already signed in.
-            </p>
+            <div className="row">
+              <form className="col s10 offset-s1" onSubmit={this.handleSubmit}>
+                <ErrorComponent message={this.state.error} />
+                <div className="row">
+                  <div className="input-field col s12">
+                    <input id="email" type="text" name="email" className="validate" />
+                    <label forHtml="email">Email</label>
+                  </div>
+                  <div className="input-field col s12">
+                    <input id="password" type="password" name="password" className="validate" />
+                    <label forHtml="password">Password</label>
+                  </div>
+                  <div className="input-field col s12">
+                    <input id="teamId" type="text" name="teamId" className="validate" />
+                    <label forHtml="teamId">Team ID</label>
+                  </div>
 
-            <a className="waves-effect waves-light large btn-large btn-block" href="#!" onClick={this.handleEventClick}>
-              <i className="material-icons left">assignment</i>
-              Start Gathering Sign Ins
-            </a>
-            &nbsp;
-            <a className="waves-effect waves-light asu-blue large btn-large btn-block" href="#!" onClick={this.handleViewClick}>
-              <i className="material-icons left">list</i>
-              View Sign Ins
-            </a>
+                  <div className="input-field col s12 center">
+                    <button className="btn waves-effect waves-light" type="submit" name="action">Sign In
+                      <i className="material-icons right">send</i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
