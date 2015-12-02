@@ -1,26 +1,25 @@
-@watch
-Feature: Sign In
+Feature: Login
 
   As a human
-  I want to sign into the application
+  I want to login to the application
   So that I can start collecting sign ins
 
-  Scenario: Email is required in sign in
+  Scenario: Email is required in login
     Given I have visited the Home Page.
-    When I sign in with "", "test", "1"
+    When I login with "", "test", "1"
     Then I see the following error: "Email is required"
 
-  Scenario: Password is required in sign in
+  Scenario: Password is required in login
     Given I have visited the Home Page.
-    When I sign in with "test@test.com", "", "1"
+    When I login with "test@test.com", "", "1"
     Then I see the following error: "Password is required"
 
-  Scenario: Team ID is required in sign in
+  Scenario: Team ID is required in login
     Given I have visited the Home Page.
-    When I sign in with "test@test.com", "test", ""
+    When I login with "test@test.com", "test", ""
     Then I see the following error: "Team ID is required"
 
-  Scenario: Sign In with Test Credentials
+  Scenario: login with Test Credentials
     Given I have visited the Home Page.
-    When I sign in with "test@test.com", "test", "1"
+    When I login with "test@test.com", "test", "1"
     Then I see "Start Gathering Sign Ins"

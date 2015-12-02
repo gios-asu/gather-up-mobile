@@ -67,7 +67,7 @@ HomePage = React.createClass({
                   </div>
 
                   <div className="input-field col s12 center">
-                    <button className="btn waves-effect waves-light" type="submit" name="action">Sign In
+                    <button className="btn  waves-effect waves-light" type="submit" name="action">Sign In
                       <i className="material-icons right">send</i>
                     </button>
                   </div>

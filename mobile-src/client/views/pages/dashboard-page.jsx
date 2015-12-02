@@ -10,9 +10,16 @@ DashboardPage = React.createClass({
 
     FlowRouter.go('/view');
   },
+  handleLogoutClick(e) {
+    e.preventDefault();
+
+    logout();
+
+    FlowRouter.go('/');
+  },
   render() {
     return (
-      <div className="event">
+      <div className="dashboard">
         <div className="row">
           <div className="col s12 m8 offset-m2">
 
@@ -32,6 +39,10 @@ DashboardPage = React.createClass({
             <a className="waves-effect waves-light asu-blue large btn-large btn-block" href="#!" onClick={this.handleViewClick}>
               <i className="material-icons left">list</i>
               View Sign Ins
+            </a>
+            &nbsp;
+            <a className="logout grey darken-1 waves-effect waves-light large btn-large btn-block" href="#!" onClick={this.handleLogoutClick}>
+              Logout
             </a>
           </div>
         </div>

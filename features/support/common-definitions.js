@@ -3,14 +3,7 @@ module.exports = function() {
     browser.url('http://localhost:3000');
   });
 
-  this.When(/^I sign in with "([^"]*)", "([^"]*)", "([^"]*)"$/, function (email, password, teamId) {
-    browser.setValue('input[name="email"]', email);
-    browser.setValue('input[name="password"]', password);
-    browser.setValue('input[name="teamId"]', teamId);
-    browser.keys(['Enter']);
-  });
-
-  this.Then(/^I see "([^"]*)"$/, function (text) {
+   this.Then(/^I see "([^"]*)"$/, function (text) {
     browser.waitForExist('.loader', null, true);
 
     var source = browser.getSource();
@@ -22,5 +15,5 @@ module.exports = function() {
     var source = browser.getSource();
     
     expect(source).toContain(error);
-  })
+  });
 };
