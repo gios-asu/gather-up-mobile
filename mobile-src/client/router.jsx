@@ -6,7 +6,16 @@ function requireLoggedIn(context, redirect) {
   }
 }
 
+function loggedInShouldGoToDashboard(context, redirect) {
+  if (Meteor.isClient) {
+    if (isLoggedIn() === true) {
+      redirect('/dashboard');
+    }
+  }
+}
+
 FlowRouter.route('/', {
+  triggersEnter: [loggedInShouldGoToDashboard],
   action: function(params, queryParams) {
     ReactLayout.render(MainLayout, {
       content: <HomePage transitionType='slide-right' />

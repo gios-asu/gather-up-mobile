@@ -10,6 +10,12 @@ App for gathering event sign ins
 4. `meteor --settings settings.json`
 5. visit `http://localhost:3000/`
 
+We use the following frameworks:
+
+* jQuery
+* Underscore
+* [Q](https://github.com/kriskowal/q) - a promise library
+
 # Running Tests
 
 Acceptance tests are written using [Chimp](https://chimp.readme.io/docs/cheat-sheet). See the [webdriver.io documentation](http://webdriver.io/api/property/getSource.html) for how to interact with the browser in the spec tests.

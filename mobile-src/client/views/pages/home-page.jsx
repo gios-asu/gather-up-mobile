@@ -55,15 +55,15 @@ HomePage = React.createClass({
                 <div className="row">
                   <div className="input-field col s12">
                     <input id="email" type="text" name="email" className="validate" />
-                    <label forHtml="email">Email</label>
+                    <label htmlFor="email">Email</label>
                   </div>
                   <div className="input-field col s12">
                     <input id="password" type="password" name="password" className="validate" />
-                    <label forHtml="password">Password</label>
+                    <label htmlFor="password">Password</label>
                   </div>
                   <div className="input-field col s12">
                     <input id="teamId" type="text" name="teamId" className="validate" />
-                    <label forHtml="teamId">Team ID</label>
+                    <label htmlFor="teamId">Team ID</label>
                   </div>
 
                   <div className="input-field col s12 center">
