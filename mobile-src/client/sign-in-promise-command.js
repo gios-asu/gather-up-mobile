@@ -12,7 +12,7 @@ SignInPromiseCommand = function() {
     return deferred.promise;
   }
 
-  var _prodSigIn = function (user) {
+  var _prodSignIn = function (user) {
     var deferred = Q.defer();
     var url = Meteor.settings.public.api.endpoint +
               Meteor.settigns.public.api.version +
@@ -30,25 +30,28 @@ SignInPromiseCommand = function() {
   }
 
   var handle = function (email, password, teamId) {
-    if (Meteor.settings && Meteor.settings.public.env === 'dev') {
-      var user = {
+    var promise = null;
+    var user = {
         email : email,
         password: password,
         teamId: teamId
-      };
+    };
 
+    if (Meteor.settings && Meteor.settings.public.env === 'dev') {
       if (_.isEqual(user, Meteor.settings.public.testData.user)) {
-        return _testSignIn(user).then(function(result) {
-          var authToken = result.token;
-
-          login(email, teamId, authToken);
-        });
+        promise = _testSignIn(user)
       }
     }
 
-    // TODO
+    if (promise === null) {
+      _prodSignIn(user);
+    }
 
-    return null;
+    return promise.then(function(result) {
+      var authToken = result.token;
+
+      login(email, teamId, authToken);
+    });
   }
 
   return {

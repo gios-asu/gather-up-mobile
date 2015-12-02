@@ -20,6 +20,8 @@ Run meteor:
 meteor --settings settings.json
 ```
 
+Now go to your your `features/support/*.feature` file and add the annotation `@watch` to the feature or scenario you want to test while watching.
+
 Run chimp:
 
 ```sh

@@ -1,3 +1,4 @@
+@watch
 Feature: Sign In
 
   As a human
