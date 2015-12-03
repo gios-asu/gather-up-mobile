@@ -1,4 +1,3 @@
-@watch
 Feature: Logout
 
   As a logged in user
@@ -6,6 +5,7 @@ Feature: Logout
   So that I can make sure my data is secure
 
   Scenario: Log out should take me to the sign in page
-    Given I am logged in and on the Dashboard page.
+    Given I am logged in
+    And I am on the dashboard page
     When I click on Logout
     Then I see "Sign In"

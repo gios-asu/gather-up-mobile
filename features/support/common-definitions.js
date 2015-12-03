@@ -3,7 +3,19 @@ module.exports = function() {
     browser.url('http://localhost:3000');
   });
 
+  this.Given(/^I am on the (.*) page$/, function (className) {
+    browser.waitForExist('.' + className);
+    browser.pause(1000);
+  });
+
+
   this.Then(/^I see "([^"]*)"$/, function (text) {
+    var source = browser.getSource();
+    
+    expect(source).toContain(text);
+  });
+
+  this.Then(/^I see "([^"]*) after loading"$/, function (text) {
     browser.waitForExist('.loader', null, true);
 
     var source = browser.getSource();

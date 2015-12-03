@@ -31,7 +31,11 @@ DashboardPage = React.createClass({
               already signed in.
             </p>
 
-            <a className="waves-effect waves-light large btn-large btn-block" href="#!" onClick={this.handleEventClick}>
+            <a
+                className="waves-effect waves-light large btn-large btn-block"
+                href="#!"
+                onClick={this.handleEventClick}
+                id="start-gathering-sign-ins">
               <i className="material-icons left">assignment</i>
               Start Gathering Sign Ins
             </a>

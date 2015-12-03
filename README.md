@@ -18,7 +18,7 @@ We use the following frameworks:
 
 # Running Tests
 
-Acceptance tests are written using [Chimp](https://chimp.readme.io/docs/cheat-sheet). See the [webdriver.io documentation](http://webdriver.io/api/property/getSource.html) for how to interact with the browser in the spec tests.
+Acceptance tests are written using [Chimp](https://chimp.readme.io/docs/cheat-sheet). See the [webdriver.io documentation](http://webdriver.io/api.html) for how to interact with the browser in the spec tests.
 
 Run meteor:
 
