@@ -4,6 +4,9 @@ Feature: Logout
   I want to logout of the application
   So that I can make sure my data is secure
 
+  Background:
+    Given I initially visit the site
+
   Scenario: Log out should take me to the sign in page
     Given I am logged in
     And I am on the dashboard page

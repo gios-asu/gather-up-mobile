@@ -4,6 +4,9 @@ Feature: Login
   I want to login to the application
   So that I can start collecting sign ins
 
+  Background:
+    Given I initially visit the site
+
   Scenario: Email is required in login
     Given I have visited the Home Page.
     When I login with "", "test", "1"

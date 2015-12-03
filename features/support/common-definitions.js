@@ -1,4 +1,9 @@
 module.exports = function() {
+  this.Given(/^I initially visit the site$/, function () {
+    browser.url('http://localhost:3000');
+    browser.localStorage('DELETE');
+  });
+
   this.Given(/^I have visited the Home Page\.$/, function () {
     browser.url('http://localhost:3000');
   });

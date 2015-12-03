@@ -58,6 +58,7 @@ EventFormComponent = React.createClass({
 
     var id = EventsCollection.insert(eventData);
     eventData.id = id;
+    save(EventsCollection);
 
     Session.set('event', eventData);
 

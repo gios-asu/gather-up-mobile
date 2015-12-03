@@ -66,6 +66,7 @@ SignUpFormComponent = React.createClass({
         signins: signinData
       }
     });
+    save(EventsCollection);
 
     FlowRouter.go('/thankyou');
   },
