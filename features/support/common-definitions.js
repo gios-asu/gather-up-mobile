@@ -3,7 +3,7 @@ module.exports = function() {
     browser.url('http://localhost:3000');
   });
 
-   this.Then(/^I see "([^"]*)"$/, function (text) {
+  this.Then(/^I see "([^"]*)"$/, function (text) {
     browser.waitForExist('.loader', null, true);
 
     var source = browser.getSource();

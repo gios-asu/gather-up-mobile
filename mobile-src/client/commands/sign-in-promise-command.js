@@ -1,21 +1,8 @@
 SignInPromiseCommand = function() {
-  var _testSignIn = function (user) {
-    var deferred = Q.defer();
-
-    // Simulate latency
-    Meteor.setTimeout(function () {
-      deferred.resolve({
-        token: Meteor.settings.public.testData.authToken
-      });
-    }, 1000);
-
-    return deferred.promise;
-  }
-
-  var _prodSignIn = function (user) {
+  var _signIn = function (user) {
     var deferred = Q.defer();
     var url = Meteor.settings.public.api.endpoint +
-              Meteor.settigns.public.api.version +
+              Meteor.settings.public.api.version +
               '/sign_in'
 
     $.post(url, {
@@ -23,10 +10,17 @@ SignInPromiseCommand = function() {
       password: user.password,
       team_id: user.teamId
     }, function (result) {
+      if (result.success && result.success === 'false') {
+        deferred.reject(new Error('Wrong credentials'));
+        return;
+      }
+
       deferred.resolve(result)
+    }).fail(function() {
+      deferred.reject(new Error('Wrong credentials'));
     });
 
-    return defered.promise;
+    return deferred.promise;
   }
 
   var handle = function (email, password, teamId) {
@@ -37,15 +31,7 @@ SignInPromiseCommand = function() {
         teamId: teamId
     };
 
-    if (Meteor.settings && Meteor.settings.public.env === 'dev') {
-      if (_.isEqual(user, Meteor.settings.public.testData.user)) {
-        promise = _testSignIn(user)
-      }
-    }
-
-    if (promise === null) {
-      _prodSignIn(user);
-    }
+    promise = _signIn(user);
 
     return promise.then(function afterAuthTokenGetPublicKey(result) {
       var authToken = result.token;

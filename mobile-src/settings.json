@@ -5,13 +5,13 @@
       "user": {
         "email": "test@test.com",
         "password": "test",
-        "teamId": "1"
+        "team_id": "1"
       },
       "authToken": "token",
       "publicKey": "TODO"
     },
     "api": {
-      "endpoint": "https://gatherup.asu.edu/api/",
+      "endpoint": "http://localhost:3000/api/",
       "version" : "v1" 
     }
   }

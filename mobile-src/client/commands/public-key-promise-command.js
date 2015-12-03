@@ -1,44 +1,28 @@
 PublicKeyPromiseCommand = function () {
-  var _testPublicKey = function(token) {
-    var deferred = Q.defer();
-
-    // Simulate latency
-    Meteor.setTimeout(function () {
-      deferred.resolve({
-        public_key: Meteor.settings.public.testData.publicKey
-      });
-    }, 1000);
-
-    return deferred.promise;
-  }
-
-  var _prodPublicKey = function(token) {
+  var _publicKey = function(token) {
     var deferred = Q.defer();
     var url = Meteor.settings.public.api.endpoint +
-              Meteor.settigns.public.api.version +
-              '/public_key'
+              Meteor.settings.public.api.version +
+              '/public_key';
 
     $.post(url, {
       token: token
     }, function (result) {
-      deferred.resolve(result)
+      if (result.success && result.success === 'false') {
+        deferred.reject(new Error('Wrong credentials'));
+        return;
+      }
+
+      deferred.resolve(result);
+    }).fail(function() {
+      deferred.reject(new Error('Wrong credentials'));
     });
 
-    return defered.promise;
+    return deferred.promise;
   }
 
   var handle = function (token) {
-    var promise = null;
-
-    if (Meteor.settings && Meteor.settings.public.env === 'dev') {
-      if (token === Meteor.settings.public.testData.authToken) {
-        promise = _testPublicKey(token)
-      }
-    }
-
-    if (promise === null) {
-      _prodPublicKey(token);
-    }
+    var promise = _publicKey(token);
 
     return promise.then(function(result) {
       return {
