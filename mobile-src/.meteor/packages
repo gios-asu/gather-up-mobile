@@ -39,3 +39,6 @@ momentjs:moment             # Awesome date parser
 richsilv:dumb-collections   # Minimongo collections without using live pubsub
 idmontie:simple-validation
 idmontie:humanize
+
+frozeman:q                  # Promises!
+respondly:router-server     # Server routing

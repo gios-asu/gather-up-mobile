@@ -31,6 +31,7 @@ es5-shim@4.1.14
 fastclick@1.0.7
 fortawesome:fontawesome@4.4.0
 fourseven:scss@3.4.1
+frozeman:q@1.0.4
 geojson-utils@1.0.4
 hot-code-push@1.0.0
 html-tools@1.0.5
@@ -79,6 +80,9 @@ react-template-helper@0.2.3
 reactive-dict@1.1.3
 reactive-var@1.0.6
 reload@1.1.4
+respondly:css-stylus@1.0.3
+respondly:router-server@1.0.1
+respondly:util@1.0.4
 retry@1.0.4
 richsilv:dumb-collections@1.1.5
 routepolicy@1.0.6

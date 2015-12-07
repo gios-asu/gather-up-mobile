@@ -1,46 +1,78 @@
+function requireLoggedIn(context, redirect) {
+  if (Meteor.isClient) {
+    if (isLoggedIn() !== true) {
+      redirect('/');
+    }
+  }
+}
+
+function loggedInShouldGoToDashboard(context, redirect) {
+  if (Meteor.isClient) {
+    if (isLoggedIn() === true) {
+      redirect('/dashboard');
+    }
+  }
+}
+
 FlowRouter.route('/', {
+  triggersEnter: [loggedInShouldGoToDashboard],
   action: function(params, queryParams) {
     ReactLayout.render(MainLayout, {
-      content: <HomePage transitionType="slide-right" />
+      content: <HomePage transitionType='slide-right' />
     });
   },
-  name: "HomePage"
+  name: 'HomePage'
 });
 
-FlowRouter.route('/event', {
+var adminRoutes = FlowRouter.group({
+  prefix: '',
+  triggersEnter: [requireLoggedIn],
+  name: 'loggedIn'
+});
+
+adminRoutes.route('/dashboard', {
+  action: function(params, queryParams) {
+    ReactLayout.render(MainLayout, {
+      content: <DashboardPage transitionType='slide-right' />
+    });
+  },
+  name: 'Dashboard'
+});
+
+adminRoutes.route('/event', {
   action: function(params, queryParams) {
     ReactLayout.render(MainLayout, {
       content: <EventPage />,
       allowGoBack: true
     });
   },
-  name: "Event"
+  name: 'Event'
 });
 
-FlowRouter.route('/signup', {
+adminRoutes.route('/signup', {
   action: function(params, queryParams) {
     ReactLayout.render(MainLayout, {
-      content: <SignUpPage title="Welcome!" />
+      content: <SignUpPage title='Welcome!' />
     });
   },
-  name: "SignUp"
+  name: 'SignUp'
 });
 
-FlowRouter.route('/thankyou', {
+adminRoutes.route('/thankyou', {
   action: function(params, queryParams) {
     ReactLayout.render(MainLayout, {
-      content: <ThankYouPage title="Thank You!" />
+      content: <ThankYouPage title='Thank You!' />
     });
   },
-  name: "ThankYou"
+  name: 'ThankYou'
 });
 
-FlowRouter.route('/view', {
+adminRoutes.route('/view', {
   action: function(params, queryParams) {
     ReactLayout.render(MainLayout, {
       content: <ViewPage />,
       allowGoBack: true
     });
   },
-  name: "View"
+  name: 'View'
 });
