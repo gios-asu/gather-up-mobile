@@ -36,7 +36,7 @@ ViewPage = React.createClass({
         <div className="row">
           <div className="col s12 m8 offset-m2">
             {$$empty}
-            <ul ref="accordian" className="collapsible popout" data-collapsible="accordion">
+            <ul ref="accordian" className="collapsible" data-collapsible="accordion">
               {this.data.events.map(function(event, i){
                 var isFirst = i === 0;
                 return <EventListItemComponent event={event} key={i} isActive={isFirst} />;

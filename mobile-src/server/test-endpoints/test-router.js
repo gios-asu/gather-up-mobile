@@ -35,3 +35,23 @@ Server.post('/api/v1/public_key', function(request, response) {
     success: 'false'
   } );
 });
+
+Server.post('/api/v1/event', function (request, response) {
+  var data = request.body;
+
+  if (Meteor.settings && Meteor.settings.public.env === 'dev') {
+    if (data.token === Meteor.settings.public.testData.authToken) {
+
+      response.send( {
+        event_id: +new Date()
+      } );
+      return;
+    }
+  }
+
+
+
+  response.send( {
+    success: 'false'
+  } );
+});

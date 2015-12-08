@@ -52,21 +52,14 @@ SignUpFormComponent = React.createClass({
     var event   = Session.get('event');
     var signins = Session.get('signins') || [];
 
-    var signinData = {
+    var signInData = {
       firstName: firstName,
       lastName: lastName,
       email: email,
       birthdate: birthdate
     };
 
-    EventsCollection.update({
-      _id: event.id
-    }, {
-      $push: {
-        signins: signinData
-      }
-    });
-    save(EventsCollection);
+    dispatch(new CreateNewSignInCommand(), event.id, publicKey(), signInData);
 
     FlowRouter.go('/thankyou');
   },

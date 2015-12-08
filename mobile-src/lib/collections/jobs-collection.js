@@ -1,0 +1,1 @@
+JobsCollection = new DumbCollection('jobs');

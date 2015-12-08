@@ -15,7 +15,7 @@ CalendarInputComponent = React.createClass({
         }
       },
       onSet: function (context) {
-        if (contect && contect.select) {
+        if (context && context.select) {
           this.close();
         }
       }

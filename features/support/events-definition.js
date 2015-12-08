@@ -17,4 +17,8 @@ module.exports = function() {
     browser.setValue('textarea[id="event_notes"]', notes);
     browser.keys(['Enter']);
   });
+
+  this.Then(/^I fill out the sign in form with "([^"]*)", "([^"]*)", "([^"]*)", "([^"]*)"$/, function (firstName, lastName, email, birthDate) {
+    this.pending();
+  })
 };

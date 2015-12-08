@@ -27,4 +27,9 @@ Feature: Gather Sign In
   Scenario:
     When I click on Start Gathering Sign Ins
       And I fill out the event form with "My Event Title", "2015-12-03", "12:00 AM", "wow"
-    Then I see "Sign In"
+    Then I see "Sign In for My Event Title"
+
+  Scenario:
+    When I click on Start Gathering Sign Ins
+      And I fill out the event form with "My Event Title", "2015-12-03", "12:00 AM", "wow"
+    Then I fill out the sign in form with "First", "Last", "email@wow.com", "2015-12-03"

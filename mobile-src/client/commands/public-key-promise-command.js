@@ -1,3 +1,9 @@
+/** 
+ * Ask for the private key!
+ *
+ * Will return a promise since this will require asking
+ * the central server!
+ */
 PublicKeyPromiseCommand = function () {
   var _publicKey = function(token) {
     var deferred = Q.defer();

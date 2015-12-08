@@ -23,3 +23,23 @@ logout = function () {
 isLoggedIn = function () {
   return UserCollection.find({}).fetch().length > 0;
 }
+
+publicKey = function () {
+  var user = UserCollection.find({}).fetch();
+
+  if (user.length > 0) {
+    return user[0].publicKey;
+  }
+
+  return null;
+}
+
+authToken = function () {
+  var user = UserCollection.find({}).fetch();
+
+  if (user.length > 0) {
+    return user[0].authToken;
+  }
+
+  return null;
+}
