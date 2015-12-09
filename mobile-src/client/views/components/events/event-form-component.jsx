@@ -54,7 +54,8 @@ EventFormComponent = React.createClass({
       time: time,
       started_at: date + ' ' + time,
       notes: notes,
-      signins: []
+      signIns: [],
+      synced: false
     };
 
     var id = dispatch(new CreateNewEventCommand, eventData);

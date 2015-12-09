@@ -4,10 +4,14 @@ SendEventCommand = function () {
               '/event';
 
   var _token = authToken();
-  data.token = _token
+  
+  var _success = function () {
+
+  }
 
   var handle = function (data, deferred, job) {
-    $.post(url, data, function (result) {
+    data.token = _token;
+    $.post(_url, data, function (result) {
       if (result.success && result.success === 'false') {
         deferred.reject(new Error('Failed to create event'));
         return;
@@ -18,13 +22,13 @@ SendEventCommand = function () {
         _id: data.id
       }, {
         $set: {
-          realId: result.event_id
+          realId: result.event_id,
+          synced: true
         }
       });
 
       save(EventsCollection);
-      _success(job);
-
+      job.success();
       deferred.resolve(result);
     }).fail(function() {
       deferred.reject(new Error('Failed to create event'));
