@@ -1,3 +1,9 @@
+/** 
+ * Ask for the private key!
+ *
+ * Will return a promise since this will require asking
+ * the central server!
+ */
 PublicKeyPromiseCommand = function () {
   var _publicKey = function(token) {
     var deferred = Q.defer();
@@ -21,6 +27,12 @@ PublicKeyPromiseCommand = function () {
     return deferred.promise;
   }
 
+  /**
+   * Return a promise that will have a token and a public key
+   * 
+   * @param  String token The auth token for the signed in user
+   * @return Promise      This promise will return a token and a publickey pair
+   */
   var handle = function (token) {
     var promise = _publicKey(token);
 
@@ -30,7 +42,7 @@ PublicKeyPromiseCommand = function () {
         publicKey: result.public_key
       }
     });
-  }
+  };
 
   return {
     handle: handle

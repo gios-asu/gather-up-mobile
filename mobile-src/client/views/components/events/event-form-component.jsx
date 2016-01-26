@@ -52,14 +52,16 @@ EventFormComponent = React.createClass({
       title: title,
       date: date,
       time: time,
+      started_at: date + ' ' + time,
       notes: notes,
-      signins: []
+      signIns: [],
+      synced: false
     };
 
-    var id = EventsCollection.insert(eventData);
+    var id = dispatch(new CreateNewEventCommand, eventData);
+    
     eventData.id = id;
-    save(EventsCollection);
-
+    
     Session.set('event', eventData);
 
     Session.set('admin', {

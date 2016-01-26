@@ -36,10 +36,12 @@ EventListItemComponent = React.createClass({
     return (
       <li>
         <div className={headerClasses}>
-          {this.props.event.title}
+          <EventFullStatusComponent event={this.props.event} /> {this.props.event.title} 
         </div>
         <div className="collapsible-body">
           <p>
+            <EventSelfStatusComponent event={this.props.event} />
+            <EventSignInStatusComponent event={this.props.event} />
             {$$date}
             {$$time}
             {$$notes}

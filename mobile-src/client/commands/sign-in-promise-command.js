@@ -1,9 +1,14 @@
+/** 
+ * Ask for the sign in creditials!
+ *
+ * Will return a promise since it needs to ask the server
+ */
 SignInPromiseCommand = function() {
   var _signIn = function (user) {
     var deferred = Q.defer();
     var url = Meteor.settings.public.api.endpoint +
               Meteor.settings.public.api.version +
-              '/sign_in'
+              '/sign_in';
 
     $.post(url, {
       email: user.email,
@@ -37,7 +42,7 @@ SignInPromiseCommand = function() {
       var authToken = result.token;
 
       return dispatch(new PublicKeyPromiseCommand(), authToken);
-    }).then(function afterPublickKeyLogin(result) {
+    }).then(function afterPublicKeyLogin(result) {
       var authToken = result.token;
       var publicKey = result.publicKey;
 
