@@ -12,15 +12,16 @@ NavigationComponent = React.createClass({
     }
 
     return(
-     <nav>
-        <div className="nav-wrapper">
-          <a href={goBackUrl} className="brand-logo">{title}</a>
-          <a href={goBackUrl} className={goBackClasses}>
-            <i className="fa fa-chevron-left"></i>
-          </a>
-          <ul id="nav-mobile" className="right hide-on-med-and-down">
-            <li><a href="/about">About</a></li>
-          </ul>
+      <nav>
+        <div className="row">
+          <div className="col s12">
+            <div className="nav-wrapper">
+              <a href={goBackUrl} className="brand-logo">{title}</a>
+              <a href={goBackUrl} className={goBackClasses}>
+                <i className="fa fa-chevron-left"></i>
+              </a>
+            </div>
+          </div>
         </div>
       </nav>
     );
